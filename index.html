@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+  </head>
+  <body>
+    <section class="welcome-container" id="welcome-container">
+      <p>
+        <pre>                
+          ___  _______   ________  ___  ________  ________     
+          |\  \|\  ___ \ |\   __  \|\  \|\   ____\|\   __  \    
+          \ \  \ \   __/|\ \  \|\  \ \  \ \  \___|\ \  \|\  \   
+        __ \ \  \ \  \_|/_\ \   _  _\ \  \ \  \    \ \  \\\  \  
+       |\  \\_\  \ \  \_|\ \ \  \\  \\ \  \ \  \____\ \  \\\  \ 
+       \ \________\ \_______\ \__\\ _\\ \__\ \_______\ \_______\
+        \|________|\|_______|\|__|\|__|\|__|\|_______|\|_______|
+        </pre>
+      </p>
+      <p>__________________________________________________________________________</p> 
+      <br/>       
+      <p>Welcome to my site, type <span>help</span> to see a list of available commands</p>
+    </section>
+    <section class="terminal-container">
+      <section class="terminal" id="terminal">
+        <div class="bash-output" id="bash-output"></div>
+        <div class="terminal-cli">
+          <p class="bash-user">welcome<span>@guest ></span></p>
+          <input
+          class="bash-terminal-input"
+          id="bash-terminal-input"
+          type="text"
+          autofocus
+          autocomplete="off"
+          maxlength="50"
+          />
+        </div>
+      </section>
+    </section>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

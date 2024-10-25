@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* For use the ascci code in the header use a monospace font */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+body {
+  margin: 10px;
+  color: rgb(255, 255, 255);
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-container {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end);
+  padding-bottom: 10px;
+}
+
+.welcome-container span {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.644), 0 0 10px rgba(255, 255, 255, 0.644);
+}
+
+.welcome-container .terminal-cli p span {
+  color: rgb(39, 197, 136);
+  text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
+}
+
+.terminal > .terminal-cli {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(89, end);
+}
+
+
+
+.terminal > .terminal-cli > p > span {
+  color: rgb(39, 197, 136);
+  text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
+}
+
+.terminal > .terminal-cli > .bash-terminal-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: rgb(255, 255, 255);
+  width: 100%;
+}
+.terminal > .terminal-cli > .bash-terminal-input:focus {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+/* Output */
+.terminal-container .bash-output {
+  /* white-space: nowrap; */
+  color: rgb(255, 255, 255, 0.844);
+}
+
+.terminal-container .bash-output p{
+  /* white-space: nowrap; */
+  padding-bottom: 10px;
+}
+
+.terminal-container .bash-output a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.644), 0 0 10px rgba(255, 255, 255, 0.644);
+}
+
+.terminal-container .bash-output > .terminal-cli > p > span {
+  color: rgb(39, 197, 136, 0.844);
+  text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
+}
+
+/* Help - Options */
+.terminal-container .terminal-help-options {
+  color: rgb(202, 202, 202);
+  margin: 5px;
+  list-style: none;
+}
+/* Error Message */
+.terminal-container .bash-output .error-message {
+  color: rgb(197, 39, 54);
+}
+
+.terminal-container .bash-output .error-message span {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.644), 0 0 10px rgba(255, 255, 255, 0.644);
+}
+
+/* Animations */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
