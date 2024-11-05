@@ -13,5 +13,3 @@ export const cv =
 // GUEST CLI
 export const guestCli =
   '<div class="terminal-cli"><p class="bash-user">welcome<span>@guest ></span></p></div>';
-// // ERROR MESSAGE
-// export const errorMsg = `<p class="error-message">Command not found, type <span>help</span> to see all available commands</p>`;
