@@ -3,6 +3,7 @@
   padding: 0;
   /* For use the ascci code in the header use a monospace font */
   font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -41,8 +42,6 @@ body {
   animation: typing 3.5s steps(89, end);
 }
 
-
-
 .terminal > .terminal-cli > p > span {
   color: rgb(39, 197, 136);
   text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
@@ -64,13 +63,13 @@ body {
   outline: none;
 }
 
-/* Output */
+/* ----- Output ----- */
 .terminal-container .bash-output {
   /* white-space: nowrap; */
   color: rgb(255, 255, 255, 0.844);
 }
 
-.terminal-container .bash-output p{
+.terminal-container .bash-output p {
   /* white-space: nowrap; */
   padding-bottom: 10px;
 }
@@ -86,13 +85,13 @@ body {
   text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
 }
 
-/* Help - Options */
+/* ----- Help - Options ----- */
 .terminal-container .terminal-help-options {
   color: rgb(202, 202, 202);
   margin: 5px;
   list-style: none;
 }
-/* Error Message */
+/* ----- Error Message ----- */
 .terminal-container .bash-output .error-message {
   color: rgb(197, 39, 54);
 }
@@ -102,7 +101,7 @@ body {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.644), 0 0 10px rgba(255, 255, 255, 0.644);
 }
 
-/* Animations */
+/* ----- Animations ----- */
 @keyframes typing {
   from {
     width: 0;
@@ -110,4 +109,37 @@ body {
   to {
     width: 100%;
   }
+}
+
+/* ----- MediaQueries -----*/
+
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (orientation: portrait) {
+  * {
+    margin: 0;
+    padding: 0;
+    /* For use the ascci code in the header use a monospace font */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .welcome-container {
+    white-space: normal;
+    overflow: hidden;
+    animation: none;
+    padding-bottom: 5px;
+  }
+}
+
+/* Landscape */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
 }
