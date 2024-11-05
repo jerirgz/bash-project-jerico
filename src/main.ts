@@ -1,6 +1,16 @@
 import './style.css';
 import '../src/types';
-import { options } from '.';
+import {
+  ABOUTME_COMMAND,
+  CLEAR_COMMAND,
+  CONTACT_COMMAND,
+  CV_COMMAND,
+  GITHUB_COMMAND,
+  HELP_COMMAND,
+  LINKEDIN_COMMAND,
+  options,
+  PROJECTS_COMMAND,
+} from './utils/commands-available';
 import {
   aboutMe,
   github,
@@ -15,8 +25,8 @@ let terminalOptions = document.querySelector<HTMLElement>('#terminal-help-option
 let terminalOutput = document.querySelector<HTMLInputElement>('#bash-output');
 let terminalInput = document.querySelector<HTMLInputElement>('#bash-terminal-input');
 
-terminalInput!.addEventListener('change', (e: any) => {
-  let value = e.target.value.trim();
+terminalInput!.addEventListener('change', (event: any) => {
+  let value = event.target.value.trim();
   if (value !== undefined && value) {
     createCli(value);
   }
@@ -42,7 +52,7 @@ function insertHTML(where: any, position: InsertPosition, element: string) {
 
 function retrieveResponse(value: string) {
   switch (value) {
-    case 'help':
+    case HELP_COMMAND:
       options.forEach((item) => {
         let ul = document.createElement('ul');
 
@@ -51,36 +61,35 @@ function retrieveResponse(value: string) {
       });
       cleanInput();
       break;
-    case 'clear':
+    case CLEAR_COMMAND:
       removeChildNodes();
       cleanInput();
       break;
-    case 'aboutme':
+    case ABOUTME_COMMAND:
       insertHTML(terminalOutput, 'beforeend', aboutMe);
       cleanInput();
       break;
-    case 'projects':
+    case PROJECTS_COMMAND:
       insertHTML(terminalOutput, 'beforeend', projects);
       cleanInput();
       break;
-    case 'linkedin':
+    case LINKEDIN_COMMAND:
       insertHTML(terminalOutput, 'beforeend', linkedIn);
       cleanInput();
       break;
-    case 'github':
+    case GITHUB_COMMAND:
       insertHTML(terminalOutput, 'beforeend', github);
       cleanInput();
       break;
-    case 'contact':
+    case CONTACT_COMMAND:
       insertHTML(terminalOutput, 'beforeend', contact);
       cleanInput();
       break;
-    case 'cv':
+    case CV_COMMAND:
       insertHTML(terminalOutput, 'beforeend', cv);
       cleanInput();
       break;
     default:
-      // insertHTML(terminalOutput, 'beforeend', errorMsg);
       printErrorMessage(value);
       cleanInput();
       break;
