@@ -1,6 +1,6 @@
 import { CommandsAvailable } from '../types';
 
-export const options: CommandsAvailable[] = [
+export const OPTIONS: CommandsAvailable[] = [
   { name: 'aboutme', description: '🧒 ~ shows a small biography' },
   { name: 'projects', description: `📚 ~ show a list of project that I'm been involved` },
   { name: 'linkedin', description: '🟦 ~ show a link to redirect to my LinkedIn Profile' },

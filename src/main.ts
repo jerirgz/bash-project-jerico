@@ -8,17 +8,18 @@ import {
   GITHUB_COMMAND,
   HELP_COMMAND,
   LINKEDIN_COMMAND,
-  options,
+  OPTIONS,
   PROJECTS_COMMAND,
 } from './utils/commands-available';
 import {
-  aboutMe,
-  github,
-  linkedIn,
-  projects,
-  contact,
-  cv,
-  guestCli,
+  ABOUTME,
+  GITHUB,
+  LINKEDIN,
+  PROJECTS,
+  CONTACT,
+  CV,
+  GUESTCLI,
+  MESSAGE_POSITION,
 } from './utils/generated-messages';
 
 let terminalOptions = document.querySelector<HTMLElement>('#terminal-help-options');
@@ -33,8 +34,13 @@ terminalInput!.addEventListener('change', (event: any) => {
 });
 
 function createCli(input: string) {
-  insertHTML(terminalOutput, 'beforeend', guestCli);
+  insertHTML(terminalOutput, MESSAGE_POSITION, GUESTCLI);
   retrieveResponse(input);
+  scrollToElement(terminalInput);
+}
+
+function scrollToElement(element: any) {
+  element?.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 function removeChildNodes() {
@@ -53,12 +59,7 @@ function insertHTML(where: any, position: InsertPosition, element: string) {
 function retrieveResponse(value: string) {
   switch (value) {
     case HELP_COMMAND:
-      options.forEach((item) => {
-        let ul = document.createElement('ul');
-
-        insertHTML(ul, 'beforeend', `<li>${item.name} - ${item.description}</li></br>`);
-        terminalOutput?.insertAdjacentElement('beforeend', ul);
-      });
+      createHelpOptionsList();
       cleanInput();
       break;
     case CLEAR_COMMAND:
@@ -66,27 +67,27 @@ function retrieveResponse(value: string) {
       cleanInput();
       break;
     case ABOUTME_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', aboutMe);
+      insertHTML(terminalOutput, MESSAGE_POSITION, ABOUTME);
       cleanInput();
       break;
     case PROJECTS_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', projects);
+      insertHTML(terminalOutput, MESSAGE_POSITION, PROJECTS);
       cleanInput();
       break;
     case LINKEDIN_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', linkedIn);
+      insertHTML(terminalOutput, MESSAGE_POSITION, LINKEDIN);
       cleanInput();
       break;
     case GITHUB_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', github);
+      insertHTML(terminalOutput, MESSAGE_POSITION, GITHUB);
       cleanInput();
       break;
     case CONTACT_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', contact);
+      insertHTML(terminalOutput, MESSAGE_POSITION, CONTACT);
       cleanInput();
       break;
     case CV_COMMAND:
-      insertHTML(terminalOutput, 'beforeend', cv);
+      insertHTML(terminalOutput, MESSAGE_POSITION, CV);
       cleanInput();
       break;
     default:
@@ -96,7 +97,16 @@ function retrieveResponse(value: string) {
   }
 }
 
+function createHelpOptionsList() {
+  const UL = document.createElement('ul');
+  UL.setAttribute('class', 'help-options');
+  OPTIONS.forEach((item) => {
+    insertHTML(UL, MESSAGE_POSITION, `<li>${item.name} - ${item.description}</li></br>`);
+    terminalOutput?.insertAdjacentElement(MESSAGE_POSITION, UL);
+  });
+}
+
 function printErrorMessage(value: string) {
-  const errorMsg = `<p class="error-message">Command <span>${value}</span> not found, type 'help' to see all available commands</p>`;
-  insertHTML(terminalOutput, 'beforeend', errorMsg);
+  const ERROR_MSG = `<p class="error-message">Command <span>${value}</span> not found, type 'help' to see all available commands</p>`;
+  insertHTML(terminalOutput, MESSAGE_POSITION, ERROR_MSG);
 }
