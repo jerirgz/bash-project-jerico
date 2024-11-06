@@ -13,3 +13,5 @@ export const CV =
 // GUEST CLI
 export const GUESTCLI =
   '<div class="terminal-cli"><p class="bash-user">welcome<span>@guest ></span></p></div>';
+// POSITION
+export const MESSAGE_POSITION = 'beforeend'
