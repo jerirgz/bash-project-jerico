@@ -98,11 +98,11 @@ function retrieveResponse(value: string) {
 }
 
 function createHelpOptionsList() {
-  let ul = document.createElement('ul');
-  ul.setAttribute('class', 'help-options');
+  const UL = document.createElement('ul');
+  UL.setAttribute('class', 'help-options');
   OPTIONS.forEach((item) => {
-    insertHTML(ul, MESSAGE_POSITION, `<li>${item.name} - ${item.description}</li></br>`);
-    terminalOutput?.insertAdjacentElement(MESSAGE_POSITION, ul);
+    insertHTML(UL, MESSAGE_POSITION, `<li>${item.name} - ${item.description}</li></br>`);
+    terminalOutput?.insertAdjacentElement(MESSAGE_POSITION, UL);
   });
 }
 
