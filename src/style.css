@@ -111,6 +111,9 @@ body {
   justify-content: space-between;
 }
 
+.terminal-container .bash-output .bash-time {
+  width: fit-content;
+}
 
 
 /* ----- Help - Options ----- */
