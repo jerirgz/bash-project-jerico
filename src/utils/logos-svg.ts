@@ -1,5 +1,7 @@
 // TODO
-export const ABOUTME_SVG = `<div class="svg-logos"></div>`;
+export const ABOUTME_SVG = `<div class="svg-logos">
+</div>`;
+
 export const PROJECTS_SVG = `<div class="svg-logos"></div>`;
 
 // WORKS
