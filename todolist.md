@@ -19,3 +19,5 @@ TODO
 - Actualizar comando de `project`
 - Mover margin-left bash-output 15px
 - Cambiar las unidades de `px` a `em` o `rem`
+- Cambiar el estilo de la pantalla principal
+- Cambiar el bash-time generado para que tenga el mismo estilo que el por defecto
