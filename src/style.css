@@ -111,11 +111,6 @@ body {
   justify-content: space-between;
 }
 
-.terminal-container .bash-output .bash-time {
-  width: fit-content;
-}
-
-
 /* ----- Help - Options ----- */
 .terminal-container .bash-output .help-options {
   white-space: nowrap;
@@ -191,6 +186,15 @@ body {
 
   .terminal-container .bash-output .help-options {
     white-space: normal;
+  }
+
+  .terminal > .terminal-cli > .bash-time {
+    display: none;
+  }
+
+  /* ----- Output ----- */
+  .terminal-container .terminal-cli > .bash-time {
+    display: none;
   }
 }
 

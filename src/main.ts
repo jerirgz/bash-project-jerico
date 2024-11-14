@@ -17,7 +17,6 @@ import {
   LINKEDIN,
   PROJECTS,
   CONTACT,
-  CV,
   GUESTCLI,
   MESSAGE_POSITION,
   ERROR_MSG_FIRST,
@@ -27,7 +26,6 @@ import {
 let terminalOptions = document.querySelector<HTMLElement>('#terminal-help-options');
 let terminalOutput = document.querySelector<HTMLElement>('#bash-output');
 let terminalTime = document.querySelector<HTMLElement>('#bash-time');
-let test = document.querySelector<HTMLElement>('#test');
 let terminalInput = document.querySelector<HTMLInputElement>('#bash-terminal-input');
 
 terminalInput!.addEventListener('change', (event: any) => {
@@ -38,8 +36,7 @@ terminalInput!.addEventListener('change', (event: any) => {
 });
 
 function createCli(input: string) {
-  insertHTML(terminalOutput, MESSAGE_POSITION, GUESTCLI);
-  printSystemTime();
+  insertHTML(terminalOutput, MESSAGE_POSITION, `${GUESTCLI} <p class="bash-time">${printSystemTime()}</p></div>`);
   retrieveResponse(input);
   scrollToElement(terminalInput);
 }
@@ -91,10 +88,6 @@ function retrieveResponse(value: string) {
       insertHTML(terminalOutput, MESSAGE_POSITION, CONTACT);
       cleanInput();
       break;
-    case CV_COMMAND:
-      insertHTML(terminalOutput, MESSAGE_POSITION, CV);
-      cleanInput();
-      break;
     default:
       printErrorMessage(value);
       cleanInput();
@@ -122,16 +115,10 @@ function printSystemTime() {
   let m = date.getMinutes();
   let s = date.getSeconds();
 
-  terminalTime!.innerHTML = `${h}:${m}:${s}`;
+  terminalTime!.innerHTML = `at ${h}:${m}:${s}`;
 
-  console.log(`Terminal Output: ${terminalOutput?.childNodes.length} `);
-
-  if (terminalOutput!.childElementCount >= 1) {
-    insertHTML(
-      terminalOutput,
-      MESSAGE_POSITION,
-      `<p class="bash-time" id="bash-time">${h}:${m}:${s}</p>`
-    );
+  if (terminalOutput!.childElementCount >= 0) {
+    return `at ${h}:${m}:${s}`;
   }
 }
 
