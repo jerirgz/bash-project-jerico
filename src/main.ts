@@ -20,10 +20,14 @@ import {
   CV,
   GUESTCLI,
   MESSAGE_POSITION,
+  ERROR_MSG_FIRST,
+  ERROR_MSG_SECOND,
 } from './utils/generated-messages';
 
 let terminalOptions = document.querySelector<HTMLElement>('#terminal-help-options');
-let terminalOutput = document.querySelector<HTMLInputElement>('#bash-output');
+let terminalOutput = document.querySelector<HTMLElement>('#bash-output');
+let terminalTime = document.querySelector<HTMLElement>('#bash-time');
+let test = document.querySelector<HTMLElement>('#test');
 let terminalInput = document.querySelector<HTMLInputElement>('#bash-terminal-input');
 
 terminalInput!.addEventListener('change', (event: any) => {
@@ -35,6 +39,7 @@ terminalInput!.addEventListener('change', (event: any) => {
 
 function createCli(input: string) {
   insertHTML(terminalOutput, MESSAGE_POSITION, GUESTCLI);
+  printSystemTime();
   retrieveResponse(input);
   scrollToElement(terminalInput);
 }
@@ -107,6 +112,27 @@ function createHelpOptionsList() {
 }
 
 function printErrorMessage(value: string) {
-  const ERROR_MSG = `<p class="error-message">Command <span>${value}</span> not found, type 'help' to see all available commands</p>`;
+  const ERROR_MSG = `${ERROR_MSG_FIRST}${value}${ERROR_MSG_SECOND}`;
   insertHTML(terminalOutput, MESSAGE_POSITION, ERROR_MSG);
 }
+
+function printSystemTime() {
+  let date = new Date();
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+
+  terminalTime!.innerHTML = `${h}:${m}:${s}`;
+
+  console.log(`Terminal Output: ${terminalOutput?.childNodes.length} `);
+
+  if (terminalOutput!.childElementCount >= 1) {
+    insertHTML(
+      terminalOutput,
+      MESSAGE_POSITION,
+      `<p class="bash-time" id="bash-time">${h}:${m}:${s}</p>`
+    );
+  }
+}
+
+printSystemTime();

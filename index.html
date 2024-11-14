@@ -14,7 +14,6 @@
   <body>
     <section class="welcome-container" id="welcome-container">
       <div class="welcome-banner">
-        <p>
           <pre>
     ___  _______   ________  ___  ________  ________     
    |\  \|\  ___ \ |\   __  \|\  \|\   ____\|\   __  \    
@@ -34,8 +33,10 @@
     </section>
     <section class="terminal-container">
       <section class="terminal" id="terminal">
-        <div class="bash-output" id="bash-output"></div>
-        <div class="terminal-cli">
+        <div class="bash-output" id="bash-output">
+        </div>
+        <div class="terminal-cli" id="terminal-cli">
+         <div class="bash-user-container">
           <p class="bash-user">welcome<span>@guest ></span></p>
           <input
             class="bash-terminal-input"
@@ -44,6 +45,8 @@
             autofocus
             autocomplete="off"
             maxlength="50" />
+         </div>
+         <p class="bash-time" id="bash-time"></p>
         </div>
       </section>
     </section>
