@@ -33,7 +33,7 @@ body {
 .welcome-container .welcome-message {
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 3.5s steps(40, end);
+  /* animation: typing 3.5s steps(40, end); */
   padding-bottom: 10px;
 }
 
@@ -46,32 +46,43 @@ body {
 .terminal > .terminal-cli {
   display: flex;
   flex-direction: row;
-  gap: 5px;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 3.5s steps(89, end);
+  /* animation: typing 3.5s steps(89, end); */
   scroll-margin-bottom: 0px;
+  justify-content: space-between;
 }
 
-.terminal > .terminal-cli > p > span {
+.terminal > .terminal-cli > .bash-user-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.terminal > .terminal-cli > .bash-user-container > p > span {
   color: rgb(39, 197, 136);
   text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
 }
 
-.terminal > .terminal-cli > .bash-terminal-input {
+.terminal > .terminal-cli > .bash-user-container > .bash-terminal-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   border: none;
   background: none;
   color: rgb(255, 255, 255);
-  width: 100%;
+  width: 60%;
 }
-.terminal > .terminal-cli > .bash-terminal-input:focus {
+
+.terminal > .terminal-cli > .bash-user-container > .bash-terminal-input:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: none;
+}
+
+.terminal > .terminal-cli > .bash-time {
+  width: fit-content;
 }
 
 /* ----- Output ----- */
@@ -94,6 +105,14 @@ body {
   text-shadow: 0 0 1px rgb(39, 197, 136, 0.644), 0 0 5px rgba(255, 255, 255, 0.644);
 }
 
+.terminal-container .bash-output > .terminal-cli {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
 /* ----- Help - Options ----- */
 .terminal-container .bash-output .help-options {
   white-space: nowrap;
@@ -108,6 +127,13 @@ body {
 .terminal-container .bash-output .error-message span {
   color: rgb(255, 255, 255);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.644), 0 0 10px rgba(255, 255, 255, 0.644);
+}
+
+/* ----- SVG ----- */
+
+.svg-logos {
+  display: inline-block;
+  margin: auto;
 }
 
 /* ----- Animations ----- */
