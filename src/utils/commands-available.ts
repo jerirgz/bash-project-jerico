@@ -1,8 +1,8 @@
 import { CommandsAvailable } from '../types';
-import { CONTACT_SVG, GITHUB_SVG, LINKEDIN_SVG } from './svg-index';
+import { CONTACT_SVG, GITHUB_SVG, LINKEDIN_SVG } from './logos-svg';
 
 export const OPTIONS: CommandsAvailable[] = [
-  { name: 'aboutme', description: `🧒 ~ shows a small biography` },
+  { name: 'aboutme', description: `~ shows a small biography` },
   {
     name: 'projects',
     description: `📚 ~ show a list of project that I'm been involved`,
@@ -19,7 +19,6 @@ export const OPTIONS: CommandsAvailable[] = [
     name: 'contact',
     description: `${CONTACT_SVG} ~ show my personal contact information`,
   },
-  { name: 'cv', description: '📄 ~ show an option to download my cv' },
 ];
 
 export const HELP_COMMAND = 'help';
